@@ -26,7 +26,7 @@ export interface Servicio {
   procedimientos: Procedimiento[];
   hospitalizacion: Hospitalizacion[];
   medicamentos: Medicamento[];
-  otrosServicios: OtrosServico[];
+  otrosServicios: OtrosServicios[];
 }
 
 export interface Consulta {
@@ -120,7 +120,7 @@ export interface Medicamento {
   consecutivo: number;
 }
 
-export interface OtrosServico {
+export interface OtrosServicios {
   codPrestador: string;
   numAutorizacion: string;
   idMIPRES: string | null;

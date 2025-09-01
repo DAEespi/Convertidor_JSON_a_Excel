@@ -2,7 +2,7 @@ import {
   Consulta,
   Hospitalizacion,
   Medicamento,
-  OtrosServico,
+  OtrosServicios,
   Procedimiento,
   Transaccion,
   Usuario,
@@ -17,7 +17,7 @@ export async function GenradorExcelJson(files: FileList) {
   const procedimientos: Procedimiento[] = [];
   const hospitalizacion: Hospitalizacion[] = [];
   const medicamentos: Medicamento[] = [];
-  const otrosServicios: OtrosServico[] = [];
+  const otrosServicios: OtrosServicios[] = [];
 
   for (let i = 0; i < files.length; i++) {
     const file = files[i]; // pocada recorrido va guardandoun archivo (JSON) en (FILE)
@@ -69,18 +69,23 @@ export async function GenradorExcelJson(files: FileList) {
   const addSheet = <T extends object>(nombre: string, data: T[]) => {
     const sheet = workbook.addWorksheet(nombre);
     if (data.length > 0) {
-      const map = EncabezadosMap[nombre as keyof typeof EncabezadosMap] ?? {};
-      const keys = Array.from(
-        new Set(
-          data.flatMap((obj) => Object.keys(obj as Record<string, unknown>))
-        )
-      );
+      const map: Record<string, string> =
+        EncabezadosMap[nombre as keyof typeof EncabezadosMap] ?? {};
+      const keys = Object.keys(map);
 
       sheet.columns = keys.map((key) => ({
-        header: (map as Record<string, string>)[key] ?? key,
+        header: map[key],
         key: key,
       }));
-      sheet.addRows(data);
+
+      const filteredData = data.map((obj) => {
+        const filtered: Record<string, unknown> = {};
+        keys.forEach((k) => {
+          filtered[k] = (obj as Record<string, unknown>)[k] ?? "";
+        });
+        return filtered;
+      });
+      sheet.addRows(filteredData);
     }
   };
 
