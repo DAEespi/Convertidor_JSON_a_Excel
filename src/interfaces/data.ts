@@ -7,6 +7,7 @@ export interface Transaccion {
 }
 
 export interface Usuario {
+  numFactura: string;
   tipoDocumentoIdentificacion: string;
   numDocumentoIdentificacion: string;
   tipoUsuario: string;
@@ -24,12 +25,14 @@ export interface Usuario {
 export interface Servicio {
   consultas: Consulta[];
   procedimientos: Procedimiento[];
+  urgencias: Urgencia[];
   hospitalizacion: Hospitalizacion[];
   medicamentos: Medicamento[];
   otrosServicios: OtrosServicios[];
 }
 
 export interface Consulta {
+  numFactura: string;
   codPrestador: string;
   fechaInicioAtencion: string;
   numAutorizacion: string;
@@ -54,6 +57,7 @@ export interface Consulta {
 }
 
 export interface Procedimiento {
+  numFactura: string;
   codPrestador: string;
   fechaInicioAtencion: string;
   idMIPRES: string | null;
@@ -76,7 +80,24 @@ export interface Procedimiento {
   consecutivo: number;
 }
 
+export interface Urgencia {
+  numFactura: string;
+  codPrestador: string;
+  fechaInicioAtencion: string;
+  causaMotivoAtencion: string;
+  codDiagnosticoPrincipal: string;
+  codDiagnosticoPrincipalE: string;
+  codDiagnosticoRelacionadoE1: string;
+  codDiagnosticoRelacionadoE2: string;
+  codDiagnosticoRelacionadoE3: string | null;
+  condicionDestinoUsuarioEgreso: string;
+  codDiagnosticoCausaMuerte: string | null;
+  fechaEgreso: string;
+  consecutivo: number;
+}
+
 export interface Hospitalizacion {
+  numFactura: string;
   codPrestador: string;
   viaIngresoServicioSalud: string;
   fechaInicioAtencion: string;
@@ -95,6 +116,7 @@ export interface Hospitalizacion {
 }
 
 export interface Medicamento {
+  numFactura: string;
   codPrestador: string;
   numAutorizacion: string;
   idMIPRES: string | null;
@@ -121,6 +143,7 @@ export interface Medicamento {
 }
 
 export interface OtrosServicios {
+  numFactura: string;
   codPrestador: string;
   numAutorizacion: string;
   idMIPRES: string | null;

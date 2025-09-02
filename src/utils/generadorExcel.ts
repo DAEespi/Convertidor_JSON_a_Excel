@@ -5,6 +5,7 @@ import {
   OtrosServicios,
   Procedimiento,
   Transaccion,
+  Urgencia,
   Usuario,
 } from "@/interfaces/data";
 import ExcelJS from "exceljs";
@@ -15,10 +16,12 @@ export async function GenradorExcelJson(files: FileList) {
   const usuarios: Omit<Usuario, "servicios">[] = [];
   const consultas: Consulta[] = [];
   const procedimientos: Procedimiento[] = [];
+  const urgencias: Urgencia[] = [];
   const hospitalizacion: Hospitalizacion[] = [];
   const medicamentos: Medicamento[] = [];
   const otrosServicios: OtrosServicios[] = [];
 
+  console.log(urgencias);
   for (let i = 0; i < files.length; i++) {
     const file = files[i]; // pocada recorrido va guardandoun archivo (JSON) en (FILE)
     const text = await file.text(); //El .text lee el contenido del archivo
@@ -41,25 +44,59 @@ export async function GenradorExcelJson(files: FileList) {
     }
     usuarioData.forEach((u) => {
       const { servicios, ...restUser } = u;
-      usuarios.push(restUser);
+      usuarios.push({ ...restUser, numFactura: restdata.numFactura });
 
       if (servicios.consultas) {
-        consultas.push(...servicios.consultas);
+        consultas.push(
+          ...servicios.consultas.map((c) => ({
+            ...c,
+            numFactura: restdata.numFactura,
+          }))
+        );
       }
 
       if (servicios.procedimientos) {
-        procedimientos.push(...servicios.procedimientos);
+        procedimientos.push(
+          ...servicios.procedimientos.map((p) => ({
+            ...p,
+            numFactura: restdata.numFactura,
+          }))
+        );
+      }
+
+      if (servicios.urgencias) {
+        urgencias.push(
+          ...servicios.urgencias.map((u) => ({
+            ...u,
+            numFactura: restdata.numFactura,
+          }))
+        );
       }
 
       if (servicios.hospitalizacion) {
-        hospitalizacion.push(...servicios.hospitalizacion);
+        hospitalizacion.push(
+          ...servicios.hospitalizacion.map((h) => ({
+            ...h,
+            numFactura: restdata.numFactura,
+          }))
+        );
       }
       if (servicios.medicamentos) {
-        medicamentos.push(...servicios.medicamentos);
+        medicamentos.push(
+          ...servicios.medicamentos.map((m) => ({
+            ...m,
+            numFactura: restdata.numFactura,
+          }))
+        );
       }
 
       if (servicios.otrosServicios) {
-        otrosServicios.push(...servicios.otrosServicios);
+        otrosServicios.push(
+          ...servicios.otrosServicios.map((o) => ({
+            ...o,
+            numFactura: restdata.numFactura,
+          }))
+        );
       }
     });
   }
@@ -93,6 +130,7 @@ export async function GenradorExcelJson(files: FileList) {
   addSheet("usuario", usuarios);
   addSheet("consultas", consultas);
   addSheet("procedimientos", procedimientos);
+  addSheet("urgencia", urgencias);
   addSheet("hospitalizacion", hospitalizacion);
   addSheet("medicamentos", medicamentos);
   addSheet("otrosServicios", otrosServicios);

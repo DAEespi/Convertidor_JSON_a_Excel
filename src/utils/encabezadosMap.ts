@@ -6,6 +6,7 @@ export const EncabezadosMap = {
     numNota: "NUM NOTA",
   },
   usuario: {
+    numFactura: "NUMERO DE FACTURA",
     tipoDocumentoIdentificacion: "TIPO DOCUMENTO IDENTIFICACION",
     numDocumentoIdentificacion: "NUM DOCUMENTO IDENTIFICACION",
     tipoUsuario: "TIPO USUARIO",
@@ -19,6 +20,7 @@ export const EncabezadosMap = {
     consecutivo: "CONSECUTIVO",
   },
   consultas: {
+    numFactura: "NUMERO DE FACTURA",
     codPrestador: "COD PRESTADOR",
     fechaInicioAtencion: "FECHA INICIO ATENCION",
     numAutorizacion: "NUM AUTORIZACION",
@@ -34,7 +36,7 @@ export const EncabezadosMap = {
     codDiagnosticoRelacionado3: "COD DIAGNOSTICO RELACIONADO 3",
     tipoDiagnosticoPrincipal: "TIPO DIAGNOSTICO PRINCIPAL",
     tipoDocumentoIdentificacion: "TIPO DOCUMENTO IDENTIFICACION",
-    numDocumentoIdentificacion: "NUM DOCUMENTO IDENTIFICACION",
+    numDocumentoIdentificacion: "NUM DOCUMENTO MEDICO",
     vrServicio: "VR SERVICIO",
     conceptoRecaudo: "CONCEPTO RECAUDO",
     valorPagoModerador: "VALOR PAGO MODERADOR",
@@ -43,6 +45,7 @@ export const EncabezadosMap = {
   },
 
   procedimientos: {
+    numFactura: "NUMERO DE FACTURA",
     codPrestador: "COD PRESTADOR",
     fechaInicioAtencion: "FECHA INICIO ATENCION",
     idMIPRES: "ID MIPRES",
@@ -54,7 +57,7 @@ export const EncabezadosMap = {
     codServicio: "COD SERVICIO",
     finalidadTecnologiaSalud: "FINALIDAD TECNOLOGIA SALUD",
     tipoDocumentoIdentificacion: "TIPO DOCUMENTO IDENTIFICACION",
-    numDocumentoIdentificacion: "NUM DOCUMENTO IDENTIFICACION",
+    numDocumentoIdentificacion: "NUM DOCUMENTO MEDICO",
     codDiagnosticoPrincipal: "COD DIAGNOSTICO PRINCIPAL",
     codDiagnosticoRelacionado: "COD DIAGNOSTICO RELACIONADO",
     codComplicacion: "COD COMPLICACION",
@@ -64,8 +67,24 @@ export const EncabezadosMap = {
     numFEVPagoModerador: "NUM FEV PAGO MODERADOR",
     consecutivo: "CONSECUTIVO",
   },
+  urgencia: {
+    numFactura: "NUMERO DE FACTURA",
+    codPrestador: "CODIGO PRESTADOR",
+    fechaInicioAtencion: "FECHA DE INICIO DE ATENCIÓN",
+    causaMotivoAtencion: "CAUSA DEL MOTIVO DE ATENCIÓN",
+    codDiagnosticoPrincipal: "COD DEL DIAGNOSTICO PRINCIPAL",
+    codDiagnosticoPrincipalE: "COD DEL DIAGNOSTICO RELACIONADO E",
+    codDiagnosticoRelacionadoE1: "COD DEL DIAGNOSTICO REALACIONADO E1",
+    codDiagnosticoRelacionadoE2: "COD DEL DIAGNOSTICO RELACIONADO E2",
+    codDiagnosticoRelacionadoE3: "COD DEL DIAGNOSTICO RELACIONADO E3 ",
+    condicionDestinoUsuarioEgreso: "CONDICION DESTINO DEL USUARIO EGRESO ",
+    codDiagnosticoCausaMuerte: "COD DEL DIAGNOSTICO DE LA CAUSA DE MUERTE",
+    fechaEgreso: "FECHA DE EGRESO",
+    consecutivo: "CONSECUTIVO",
+  },
 
   hospitalizacion: {
+    numFactura: "NUMERO DE FACTURA",
     codPrestador: "COD PRESTADOR",
     viaIngresoServicioSalud: "VIA INGRESO SERVICIO SALUD",
     fechaInicioAtencion: "FECHA INICIO ATENCION",
@@ -84,6 +103,7 @@ export const EncabezadosMap = {
   },
 
   medicamentos: {
+    numFactura: "NUMERO DE FACTURA",
     codPrestador: "COD PRESTADOR",
     numAutorizacion: "NUM AUTORIZACION",
     idMIPRES: "ID MIPRES",
@@ -100,7 +120,7 @@ export const EncabezadosMap = {
     cantidadMedicamento: "CANTIDAD MEDICAMENTO",
     diasTratamiento: "DIAS TRATAMIENTO",
     tipoDocumentoIdentificacion: "TIPO DOCUMENTO IDENTIFICACION",
-    numDocumentoIdentificacion: "NUM DOCUMENTO IDENTIFICACION",
+    numDocumentoIdentificacion: "NUM DOCUMENTO MEDICO",
     vrUnitMedicamento: "VR UNIT MEDICAMENTO",
     vrServicio: "VR SERVICIO",
     conceptoRecaudo: "CONCEPTO RECAUDO",
@@ -110,6 +130,7 @@ export const EncabezadosMap = {
   },
 
   otrosServicios: {
+    numFactura: "NUMERO DE FACTURA",
     codPrestador: "CODPRESTADOR",
     numAutorizacion: "NUMAUTORIZACION",
     idMIPRES: "IDMIPRES",
