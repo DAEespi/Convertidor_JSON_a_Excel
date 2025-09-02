@@ -21,7 +21,7 @@ export async function GenradorExcelJson(files: FileList) {
   const medicamentos: Medicamento[] = [];
   const otrosServicios: OtrosServicios[] = [];
 
-  console.log(urgencias);
+  
   for (let i = 0; i < files.length; i++) {
     const file = files[i]; // pocada recorrido va guardandoun archivo (JSON) en (FILE)
     const text = await file.text(); //El .text lee el contenido del archivo
